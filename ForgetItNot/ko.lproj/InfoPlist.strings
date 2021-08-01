@@ -1,0 +1,8 @@
+/* 
+  InfoPlist.strings
+  ForgetItNot
+
+  Created by 박정현 on 09/08/2019.
+  Copyright © 2019 박정현. All rights reserved.
+*/
+CFBundleDisplayName = "Forget It Not";
