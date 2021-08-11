@@ -48,8 +48,16 @@ class ThemeData {
         return ThemeData(themeName: NSLocalizedString("Silvertone", comment: ""), colors: [UIColor.white, UIColor.lightGray, UIColor.gray, UIColor.darkGray, UIColor.black.lighter(), UIColor.black], backgroundColor: UIColor.darkGray)
     }
     
+    static func Ranked() -> ThemeData {
+        return ThemeData(themeName: NSLocalizedString("Ranked", comment: ""), colors: [UIColor.brown.lighter(amount:0.1), UIColor.gray.lighter(), UIColor.orange.lighter(amount: 0.15), UIColor.blue.lighter().mixed(withColor: UIColor.green), UIColor.blue.lighter(amount: 0.25), UIColor.purple.mixed(withColor: UIColor.red)], backgroundColor: UIColor.gray.darkened(amount: 0.05))
+    }
+    
     static func GetStandardTheme() -> [ThemeData] {
         return [ThemeData.ForgetMeNot(), ThemeData.BlackNWhite(), ThemeData.Piano(), ThemeData.Rainbow(), ThemeData.IntoTheSea(), ThemeData.Silvertone()]
+    }
+    
+    static func GetPremiumTheme() -> [ThemeData] {
+        return [ThemeData.Ranked()]
     }
     
 }

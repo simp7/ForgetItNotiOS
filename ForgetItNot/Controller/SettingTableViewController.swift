@@ -213,6 +213,7 @@ class SettingTableViewController: UITableViewController {
     func showAboutApp() {
         
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+        Defaults().isPurchased = true
         
         let alert = UIAlertController(title: "Forget It Not", message: NSLocalizedString("version : ", comment: "") + version, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)

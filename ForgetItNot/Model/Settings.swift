@@ -39,6 +39,9 @@ class Settings {
     
     private init() {
         themes = ThemeData.GetStandardTheme()
+        if Settings.defaults.isPurchased {
+            themes.append(contentsOf: ThemeData.GetPremiumTheme())
+        }
         currentTheme = themes[Settings.defaults.theme]
     }
     
@@ -58,7 +61,7 @@ class Settings {
         settings.delegate?.adjustColor()
     }
     
-    static func cellColors() -> [UIColor]{
+    static func cellColors() -> [UIColor] {
         return settings.currentTheme.colors
     }
     
