@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwipeCellKit
 
 class FinInfoViewController: UIViewController {
     
@@ -15,8 +16,8 @@ class FinInfoViewController: UIViewController {
     @IBOutlet weak var repetitionLabel: UILabel!
     @IBOutlet weak var finRangeLabel: UILabel!
     @IBOutlet weak var finRepetitionLabel: UILabel!
-    @IBOutlet weak var toolbar: UIToolbar!
-    
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var buttonContainer: UIStackView!
     
     @IBOutlet var allText: [UILabel]!
     
@@ -39,6 +40,8 @@ class FinInfoViewController: UIViewController {
             }
         }
         
+        deleteButton.setTitle(NSLocalizedString("Delete", comment: ""), for: .normal)
+        
         Settings.settings.delegate = self
         Settings.setUI()
         
@@ -52,7 +55,7 @@ class FinInfoViewController: UIViewController {
 
     //MARK: - ToolBar 관련 함수
     
-    @IBAction func deleteButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func deleteButtonPressed(_ sender: UIButton) {
         
         let alert = UIAlertController(title: NSLocalizedString("Are you sure to delete?", comment: ""), message: NSLocalizedString("You cannot restore it.", comment: ""), preferredStyle: .alert)
         
@@ -94,8 +97,8 @@ extension FinInfoViewController: SettingDelegate {
             i.textColor = tint
         }
         
-        toolbar.barTintColor = Settings.background()
-        toolbar.tintColor = Settings.tint()
+        buttonContainer.backgroundColor = Settings.background()
+        deleteButton.setTitleColor(Settings.tint(), for: .normal)
         
     }
     

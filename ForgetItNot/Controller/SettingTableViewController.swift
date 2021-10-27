@@ -19,6 +19,7 @@ class SettingTableViewController: UITableViewController {
         
         super.viewDidLoad()
         
+        title = NSLocalizedString("Settings", comment: "")
         tableView.separatorStyle = .none
         
         Settings.settings.delegate = self
@@ -89,19 +90,24 @@ class SettingTableViewController: UITableViewController {
     
     func setCell(_ cell: SetColorTableViewCell, tint: UIColor) {
         
+        cell.titleLabel.text = NSLocalizedString("Themes", comment: "")
+        
         cell.picker.delegate = cell.picker
         cell.picker.dataSource = cell.picker
         
         cell.picker.themeList = Settings.themeList()
         
-        cell.picker.tint = tint
         cell.titleLabel.textColor = tint
+        cell.picker.tint = tint
         
         cell.picker.selectRow(Settings.defaults.theme, inComponent: 0, animated: false)
         
     }
     
     func setCell(_ cell: RemoveCategoryTableViewCell, tint: UIColor) {
+        
+        cell.titleLabel.text = NSLocalizedString("Categories", comment: "")
+        cell.removeButton.setTitle(NSLocalizedString("Remove", comment: ""), for: .normal)
         
         cell.picker.delegate = cell.picker
         cell.picker.dataSource = cell.picker

@@ -44,9 +44,9 @@
 /* Begin PBXFileReference section */
 		4E5081D12380D9850012119C /* FinSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinSet.swift; sourceTree = "<group>"; };
 		4E565ACF237E917600F75A7A /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
-		4E6B4FD823594FC3001F439A /* ko */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ko; path = ko.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4E75EDB8237FA63800486266 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		4E75EDBA237FB20000486266 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		654D1AE72716B2AA003E0E63 /* ForgetItNot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ForgetItNot.entitlements; sourceTree = "<group>"; };
 		7138DBA924FF79F400794B0B /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		71544651250200CB009403B2 /* SetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetManager.swift; sourceTree = "<group>"; };
 		71F55A9C2509EA050014FA53 /* TodoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoManager.swift; sourceTree = "<group>"; };
@@ -109,6 +109,8 @@
 		D5B4118922F00118004028A1 /* ForgetItNot */ = {
 			isa = PBXGroup;
 			children = (
+				D5B4118E22F00118004028A1 /* Main.storyboard */,
+				654D1AE72716B2AA003E0E63 /* ForgetItNot.entitlements */,
 				D5B4119E22F006D8004028A1 /* View */,
 				D5B4118A22F00118004028A1 /* AppDelegate.swift */,
 				D5B4119F22F0070B004028A1 /* Model */,
@@ -144,7 +146,6 @@
 		D5B4119E22F006D8004028A1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D5B4118E22F00118004028A1 /* Main.storyboard */,
 				D5B411A422F010B0004028A1 /* FinTableViewCell.swift */,
 				D5F95A4C22F98747008BD9E1 /* SimpleCell.swift */,
 				D5F95A5422F9A174008BD9E1 /* SetColorTableViewCell.swift */,
@@ -206,8 +207,8 @@
 		D5B4117F22F00118004028A1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1030;
-				LastUpgradeCheck = 1220;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
 				ORGANIZATIONNAME = "박정현";
 				TargetAttributes = {
 					D5B4118622F00118004028A1 = {
@@ -308,7 +309,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				D5B4118F22F00118004028A1 /* Base */,
-				4E6B4FD823594FC3001F439A /* ko */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -383,7 +383,6 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -449,7 +448,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = ForgetItNot/ForgetItNot.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = CWJF6DMNK4;
@@ -461,8 +463,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.simp7.ForgetItNot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -470,7 +474,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = ForgetItNot/ForgetItNot.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = CWJF6DMNK4;
@@ -482,8 +489,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.simp7.ForgetItNot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

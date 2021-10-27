@@ -1,0 +1,69 @@
+
+/* Class = "UILabel"; text = "Switch"; ObjectID = "8h1-nz-q2k"; */
+"8h1-nz-q2k.text" = "Switch";
+
+/* Class = "UIBarButtonItem"; title = "add"; ObjectID = "Aao-EM-UNT"; */
+"Aao-EM-UNT.title" = "add";
+
+/* Class = "UILabel"; text = "rangeLabel"; ObjectID = "Cpa-0f-fIZ"; */
+"Cpa-0f-fIZ.text" = "rangeLabel";
+
+/* Class = "UILabel"; text = "Clear data"; ObjectID = "DYy-5l-jUH"; */
+"DYy-5l-jUH.text" = "Clear data";
+
+/* Class = "UILabel"; text = "repetition"; ObjectID = "JVS-EE-3uf"; */
+"JVS-EE-3uf.text" = "repetition";
+
+/* Class = "UINavigationItem"; title = "Forget It Not"; ObjectID = "L4f-RF-J0l"; */
+"L4f-RF-J0l.title" = "Forget It Not";
+
+/* Class = "UILabel"; text = "5"; ObjectID = "Msp-L3-qs8"; */
+"Msp-L3-qs8.text" = "5";
+
+/* Class = "UIButton"; configuration.title = "Delete"; ObjectID = "QqW-vc-k51"; */
+"QqW-vc-k51.configuration.title" = "Delete";
+
+/* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "QqW-vc-k51"; */
+"QqW-vc-k51.normalTitle" = "Delete";
+
+/* Class = "UILabel"; text = "categoryLabel"; ObjectID = "XuH-x0-ZAz"; */
+"XuH-x0-ZAz.text" = "categoryLabel";
+
+/* Class = "UILabel"; text = "Categories "; ObjectID = "ZFU-oF-lcE"; */
+"ZFU-oF-lcE.text" = "Categories ";
+
+/* Class = "UIButton"; configuration.title = "Cancel"; ObjectID = "b13-FT-mMN"; */
+"b13-FT-mMN.configuration.title" = "Cancel";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "b13-FT-mMN"; */
+"b13-FT-mMN.normalTitle" = "Button";
+
+/* Class = "UIBarButtonItem"; title = "settings"; ObjectID = "cuS-xa-Lly"; */
+"cuS-xa-Lly.title" = "settings";
+
+/* Class = "UIButton"; normalTitle = "Remove"; ObjectID = "gbg-Md-lMW"; */
+"gbg-Md-lMW.normalTitle" = "Remove";
+
+/* Class = "UITableViewController"; title = "Settings"; ObjectID = "iik-iX-gVN"; */
+"iik-iX-gVN.title" = "Settings";
+
+/* Class = "UILabel"; text = "Themes"; ObjectID = "m6F-44-VSv"; */
+"m6F-44-VSv.text" = "Themes";
+
+/* Class = "UIViewController"; title = "Detail"; ObjectID = "qGY-2H-jha"; */
+"qGY-2H-jha.title" = "Detail";
+
+/* Class = "UILabel"; text = "RangeLabel"; ObjectID = "vHA-py-ZD1"; */
+"vHA-py-ZD1.text" = "RangeLabel";
+
+/* Class = "UIButton"; configuration.title = "Save"; ObjectID = "z5t-77-eQh"; */
+"z5t-77-eQh.configuration.title" = "Save";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "z5t-77-eQh"; */
+"z5t-77-eQh.normalTitle" = "Button";
+
+/* Class = "UISegmentedControl"; zdg-Lj-N5K.segmentTitles[0] = "Study"; ObjectID = "zdg-Lj-N5K"; */
+"zdg-Lj-N5K.segmentTitles[0]" = "Study";
+
+/* Class = "UISegmentedControl"; zdg-Lj-N5K.segmentTitles[1] = "Assignment"; ObjectID = "zdg-Lj-N5K"; */
+"zdg-Lj-N5K.segmentTitles[1]" = "Assignment";

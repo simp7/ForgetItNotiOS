@@ -16,9 +16,9 @@ class AddFinViewController: UIViewController {
     @IBOutlet weak var rangeTextField: UITextField!
     @IBOutlet weak var categoryPicker: UIPickerView!
     @IBOutlet weak var optionList: UIStackView!
-    @IBOutlet weak var saveButton: UIBarButtonItem!
-    @IBOutlet weak var cancelButton: UIBarButtonItem!
-    @IBOutlet weak var toolbar: UIToolbar!
+    @IBOutlet weak var buttonContainer: UIStackView!
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     
     @IBOutlet var textFields: [UITextField]!
     @IBOutlet weak var chooseSegment: UISegmentedControl!
@@ -33,11 +33,13 @@ class AddFinViewController: UIViewController {
         
         optionList.spacing = 30.0
         
-        categoryTextField.layer.borderWidth = 1.0
-        rangeTextField.layer.borderWidth = 1.0
-        
         categoryPicker.delegate = self
         categoryPicker.dataSource = self
+        
+        saveButton.setTitle(NSLocalizedString("Save", comment: ""), for: .normal)
+        cancelButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
+        chooseSegment.setTitle(NSLocalizedString("Study", comment: ""), forSegmentAt: 0)
+        chooseSegment.setTitle(NSLocalizedString("Assignment", comment: ""), forSegmentAt: 1)
         
         for i in textFields {
             i.delegate = self
@@ -58,7 +60,7 @@ class AddFinViewController: UIViewController {
     
     //MARK: - ToolBar 관련 함수
     
-    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func saveButtonPressed(_ sender: UIButton) {
         if let data = processData() {
             add(category: data.category)
             delegate?.insert(data)
@@ -70,7 +72,7 @@ class AddFinViewController: UIViewController {
         }
     }
     
-    @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func cancelButtonPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
     
@@ -241,16 +243,6 @@ extension AddFinViewController: SettingDelegate {
         
         for i in textFields {
             
-            i.layer.borderWidth = 0
-            let border = CALayer()
-            let width = CGFloat(1.5)
-            border.borderColor = tint.cgColor
-            border.frame = CGRect(x: 0, y: i.frame.size.height - width, width: i.frame.size.width, height: i.frame.size.height)
-            
-            border.borderWidth = width
-            i.layer.addSublayer(border)
-            i.layer.masksToBounds = true
-            
             i.backgroundColor = background
             i.textColor = tint
             i.tintColor = tint
@@ -258,9 +250,6 @@ extension AddFinViewController: SettingDelegate {
         }
         
         categoryPicker.tintColor = tint
-        
-        toolbar.barTintColor = tint
-        toolbar.tintColor = background
         
         categoryTextField.attributedPlaceholder = NSMutableAttributedString(string: NSLocalizedString("Category(within 20 letters)", comment: ""), attributes: [NSAttributedString.Key.foregroundColor:tint])
         rangeTextField.attributedPlaceholder = NSMutableAttributedString(string: NSLocalizedString("Range(within 20 letters)", comment: ""), attributes: [NSAttributedString.Key.foregroundColor:tint])
@@ -274,6 +263,10 @@ extension AddFinViewController: SettingDelegate {
             chooseSegment.selectedSegmentTintColor = background
             chooseSegment.setTitleTextAttributes([.foregroundColor: tint], for: .selected)
         }
+        
+        buttonContainer.backgroundColor = Settings.tint()
+        saveButton.tintColor = Settings.background()
+        cancelButton.tintColor = Settings.background()
         
     }
     

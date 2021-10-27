@@ -27,7 +27,6 @@ class FinTableViewController: UITableViewController {
         super.viewDidLoad()
         initializeData()
         
-        tableView.rowHeight = 80.0
         tableView.separatorStyle = .none
         
         Settings.settings.getTheme()

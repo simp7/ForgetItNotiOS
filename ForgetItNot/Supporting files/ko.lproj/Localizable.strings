@@ -20,6 +20,10 @@
 
 "Category(within 20 letters)" = "카테고리(20자 이하)";
 "Range(within 20 letters)" = "범위(20자 이하)";
+"Study" = "공부";
+"Assignment" = "과제";
+"Save" = "저장";
+"Cancel" = "취소";
 "Oops!" = "경고";
 "You should write category and range." = "카테고리와 범위를 입력해야 합니다.";
 "You already have been added same item." = "이미 같은 항목이 존재합니다.";
@@ -28,6 +32,7 @@
 
 //FinInfoView
 
+"Delete" = "삭제";
 "Are you sure to delete?" = "정말 제거하시겠습니까?";
 "You cannot restore it." = "제거 후에 복구할 수 없습니다.";
 "Yes" = "네";
@@ -35,6 +40,10 @@
 
 //SettingTableView
 
+"Settings" = "설정";
+"Themes" = "테마";
+"Categories" = "카테고리";
+"Remove" = "제거";
 "There is no category." = "제거할 항목이 없습니다.";
 "Enable notify(6pm)" = "알림 설정(오후 6시)";
 "Remove ads" = "광고 제거";
