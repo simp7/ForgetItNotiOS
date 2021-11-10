@@ -29,23 +29,21 @@ import RealmSwift
         return "dateString"
     }
     
-    func insert(_ f: FinData) {
-        data.append(f)
+    func insert(_ target: FinData) {
+        data.append(target)
     }
     
-    func delete(_ f: FinData) {
-        var i = 0
-        while (i < data.count) {
-            if (data[i] == f) {
-                data.remove(at: i)
+    func delete(_ target: FinData) {
+        for (index, selected) in data.enumerated() {
+            if selected == target {
+                data.remove(at: index)
                 return
             }
-            i += 1
         }
     }
     
-    func isThere(_ f: FinData) -> Bool {
-        return data.filter{$0 == f}.count > 0
+    func isThere(_ target: FinData) -> Bool {
+        return data.filter{$0 == target}.count > 0
     }
     
     func updateRepetition(by repetition: Int) {

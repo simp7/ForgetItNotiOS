@@ -49,7 +49,7 @@ class ThemeData {
     }
     
     static func Ranked() -> ThemeData {
-        return ThemeData(themeName: NSLocalizedString("Ranked", comment: ""), colors: [UIColor.brown.lighter(amount:0.1), UIColor.gray.lighter(), UIColor.orange.lighter(amount: 0.15), UIColor.blue.lighter().mixed(withColor: UIColor.green), UIColor.blue.lighter(amount: 0.25), UIColor.purple.mixed(withColor: UIColor.red)], backgroundColor: UIColor.gray.darkened(amount: 0.05))
+        return ThemeData(themeName: NSLocalizedString("Ranked", comment: ""), colors: [UIColor(hexString: "#cd7f32"), UIColor(hexString: "#c0c0c0"), UIColor(hexString: "#ffd700"), UIColor(hexString: "#a2e4b8"), UIColor(hexString: "#b9f2ff"), UIColor(hexString: "#e10098")], backgroundColor: UIColor(hexString: "#a19d94"))
     }
     
     static func GetStandardTheme() -> [ThemeData] {

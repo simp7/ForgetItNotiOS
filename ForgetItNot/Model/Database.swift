@@ -70,10 +70,10 @@ class Database {
         do {
             if fin.repetition.value == nil {
                 delete(fin: fin)
-            } else {
-                try realm.write {
-                    todo?.delete(fin)
-                }
+                return
+            }
+            try realm.write {
+                todo?.delete(fin)
             }
         } catch {
             debugPrint("Error occured when clearing")

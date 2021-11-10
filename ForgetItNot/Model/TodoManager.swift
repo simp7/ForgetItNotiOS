@@ -21,11 +21,12 @@ class TodoManager {
         
         if todoObj.count != 0 && !datePassed {
             todo = todoObj.first!
-        } else {
-            realm.delete(todoObj)
-            todo = realm.create(Todo.self)
-            getFinOfToday()
+            return
         }
+        
+        realm.delete(todoObj)
+        todo = realm.create(Todo.self)
+        getFinOfToday()
         
     }
     
@@ -51,15 +52,12 @@ class TodoManager {
             todo.add(array: assignment)
         }
         
-        var delta = 0
-        
-        for i in date.getReviewDate() {
+        for (index, selected) in date.getReviewDate().enumerated() {
             
-            debugPrint("get data from \(date.encode(of: i))")
-            if let target = realm.object(ofType: FinSet.self, forPrimaryKey: date.encode(of: i)) {
-                target.updateRepetition(by: delta)
+            debugPrint("get data from \(date.encode(of: selected))")
+            if let target = realm.object(ofType: FinSet.self, forPrimaryKey: date.encode(of: selected)) {
+                target.updateRepetition(by: index)
                 todo.add(array: target)
-                delta += 1
             }
             
         }

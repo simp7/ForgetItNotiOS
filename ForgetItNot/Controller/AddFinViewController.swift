@@ -256,13 +256,10 @@ extension AddFinViewController: SettingDelegate {
         
         chooseSegment.tintColor = background
         chooseSegment.backgroundColor = tint
+        chooseSegment.selectedSegmentTintColor = background
         
         chooseSegment.setTitleTextAttributes([.foregroundColor: background], for: .normal)
-        
-        if #available(iOS 13.0, *) {
-            chooseSegment.selectedSegmentTintColor = background
-            chooseSegment.setTitleTextAttributes([.foregroundColor: tint], for: .selected)
-        }
+        chooseSegment.setTitleTextAttributes([.foregroundColor: tint], for: .selected)
         
         buttonContainer.backgroundColor = Settings.tint()
         saveButton.tintColor = Settings.background()

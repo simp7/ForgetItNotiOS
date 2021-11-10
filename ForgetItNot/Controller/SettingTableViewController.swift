@@ -11,7 +11,7 @@ import UserNotifications
 
 class SettingTableViewController: UITableViewController {
 
-    var settingList: [(name: String, height: CGFloat, identifier: String)] = [("Theme", 160, "SetColorCell"), ("Remove category", 160, "RemoveCategoryCell"), ("Enable badge", 80, "SwitchCell"), ("Clear data", 80, "SimpleCell"), ("About app", 80, "SimpleCell")]
+    var settingList: [(name: String, height: CGFloat, identifier: String)] = [("Theme", 160, "SetColorCell"), ("Remove category", 160, "RemoveCategoryCell"), ("Enable badge", 80, "SwitchCell"), ("Remove ads", 80, "SimpleCell"), ("Clear data", 80, "SimpleCell"), ("About app", 80, "SimpleCell")]
     var categories: [String]?
     var delegate: FinDelegate?
     
@@ -33,26 +33,18 @@ class SettingTableViewController: UITableViewController {
 
         let bar = Settings.background()
         let tint = Settings.tint()
+        let navigationBarAppearance = UINavigationBarAppearance()
         
         navigationBar.barTintColor = bar
         navigationBar.tintColor = tint
-        
-        if #available(iOS 13.0, *) {
             
-            let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.configureWithOpaqueBackground()
+        navigationBarAppearance.titleTextAttributes = [.foregroundColor:tint]
+        navigationBarAppearance.largeTitleTextAttributes = [.foregroundColor:tint]
+        navigationBarAppearance.backgroundColor = bar
             
-            navigationBarAppearance.configureWithOpaqueBackground()
-            navigationBarAppearance.titleTextAttributes = [.foregroundColor:tint]
-            navigationBarAppearance.largeTitleTextAttributes = [.foregroundColor:tint]
-            navigationBarAppearance.backgroundColor = bar
-            
-            navigationBar.standardAppearance = navigationBarAppearance
-            navigationBar.scrollEdgeAppearance = navigationBarAppearance
-            
-        } else {
-        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : tint]
-        navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : tint]
-        }
+        navigationBar.standardAppearance = navigationBarAppearance
+        navigationBar.scrollEdgeAppearance = navigationBarAppearance
         
     }
     
@@ -79,6 +71,8 @@ class SettingTableViewController: UITableViewController {
         case 2:
             setCell(cell as! EnableNotifyCell, tint: tint)
         case 3:
+            setCell(cell as! SimpleCell, text: Settings.defaults.isPurchased ? NSLocalizedString("Ads have been gone", comment: "") : NSLocalizedString("Remove ads", comment: ""), tint: tint)
+        case 4:
             setCell(cell as! SimpleCell, text: NSLocalizedString("Remove all data", comment: ""), tint: tint)
         default:
             setCell(cell as! SimpleCell, text: NSLocalizedString("About this app", comment: ""), tint: tint)
@@ -145,8 +139,10 @@ class SettingTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 3:
-            askRemoveData()
+            Settings.defaults.isPurchased ? tableView.deselectRow(at: indexPath, animated: false) : askRemoveAds()
         case 4:
+            askRemoveData()
+        case 5:
             showAboutApp()
         default:
             tableView.deselectRow(at: indexPath, animated: false)
@@ -166,7 +162,7 @@ class SettingTableViewController: UITableViewController {
         let content = UNMutableNotificationContent()
         
         content.title = NSLocalizedString("Review of Today", comment: "")
-        content.body = NSLocalizedString("Reviewing is the best way to memorize!", comment: "")
+        content.body = NSLocalizedString("Review is the best way to memorize!", comment: "")
         
         var dateComponents = DateComponents()
         
@@ -186,6 +182,21 @@ class SettingTableViewController: UITableViewController {
         
         Settings.defaults.notifyIdentifier = request.identifier
         Settings.setNotification(true)
+        
+    }
+    
+    func askRemoveAds() {
+        
+        let alert = UIAlertController(title: NSLocalizedString("Do you want to purchase?", comment: ""), message: NSLocalizedString("Ads will be gone.", comment: ""), preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .cancel, handler: nil)
+        let buyAction = UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default, handler: { (buyAction) in
+            
+        })
+        
+        alert.addAction(buyAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
         
     }
     

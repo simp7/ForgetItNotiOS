@@ -27,14 +27,12 @@ import RealmSwift
         data.insert(fin, at: 0) // 원소를 삽입할 때에는 맨 위에 위치하도록 해야 한다.
     }
     
-    func remove(_ f: FinData) {
-        var i = 0, s = size()
-        while (i < s) {
-            if (data[i] == f) {
-                data.remove(at: i)
+    func remove(_ target: FinData) {
+        for (index, selected) in data.enumerated() {
+            if selected == target {
+                data.remove(at: index)
                 return
             }
-            i += 1
         }
     }
     

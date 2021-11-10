@@ -111,4 +111,3 @@ class Settings {
 protocol SettingDelegate {
     func adjustColor()
 }
-

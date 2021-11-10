@@ -103,27 +103,18 @@ class FinTableViewController: UITableViewController {
 
         let bar = Settings.background()
         let tint = Settings.tint()
+        let navigationBarAppearance = UINavigationBarAppearance()
         
         navigationBar.barTintColor = bar
         navigationBar.tintColor = tint
+            
+        navigationBarAppearance.configureWithOpaqueBackground()
+        navigationBarAppearance.titleTextAttributes = [.foregroundColor:tint]
+        navigationBarAppearance.largeTitleTextAttributes = [.foregroundColor:tint]
+        navigationBarAppearance.backgroundColor = bar
         
-        if #available(iOS 13.0, *) {
-            
-            let navigationBarAppearance = UINavigationBarAppearance()
-            
-            navigationBarAppearance.configureWithOpaqueBackground()
-            navigationBarAppearance.titleTextAttributes = [.foregroundColor:tint]
-            navigationBarAppearance.largeTitleTextAttributes = [.foregroundColor:tint]
-            navigationBarAppearance.backgroundColor = bar
-            
-            
-            navigationBar.standardAppearance = navigationBarAppearance
-            navigationBar.scrollEdgeAppearance = navigationBarAppearance
-            
-        } else {
-        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : tint]
-        navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : tint]
-        }
+        navigationBar.standardAppearance = navigationBarAppearance
+        navigationBar.scrollEdgeAppearance = navigationBarAppearance
         
     }
     
@@ -176,7 +167,6 @@ class FinTableViewController: UITableViewController {
     
     func clear(_ data: FinData) {
         db.clear(data)
-        //TODO: 통계에 활용할 자료 추가
     }
     
     //MARK: - 날짜 관련 함수

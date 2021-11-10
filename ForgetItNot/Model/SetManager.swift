@@ -50,14 +50,18 @@ class SetManager {
     }
     
     func insert(_ fin: FinData) {
-        if fin.repetition.value == nil {
-            if realm.object(ofType: FinSet.self, forPrimaryKey: "assignments") == nil {
-                realm.add(assignment, update: .all)
-            }
-            realm.object(ofType: FinSet.self, forPrimaryKey: "assignments")!.insert(fin)
-        } else {
+        
+        if fin.repetition.value != nil {
             today.insert(fin)
+            return
         }
+        
+        if realm.object(ofType: FinSet.self, forPrimaryKey: "assignments") == nil {
+            realm.add(assignment, update: .all)
+        }
+        
+        realm.object(ofType: FinSet.self, forPrimaryKey: "assignments")!.insert(fin)
+        
     }
     
 }

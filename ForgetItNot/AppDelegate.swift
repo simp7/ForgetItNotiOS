@@ -10,6 +10,7 @@ import UIKit
 import UserNotifications
 import IQKeyboardManagerSwift
 import RealmSwift
+import StoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
